@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<style>
+body{
+	font-family: 'Comic Sans MS', 'Comic Sans', Chalkboard, 'Times New Roman', 'Times';
+    font-style: normal;
+    font-weight: 400;
+    overflow-x: hidden;
+    text-align: center;
+}
+h1{
+	color: cornflowerblue;
+    display: inline-block;
+    background: -webkit-linear-gradient(left, red, orange, gold, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size:4.25rem;
+    animation: spin 0.5s linear;
+}
+@keyframes spin {
+	from{ transform: rotate(0deg);}
+	to{ transform: rotate(360deg);}
+}
+.marquee {
+	white-space: pre;
+	opacity: 0;
+	padding-right: 100%;
+	display:inline-block;
+    animation: marquee 8.5s linear infinite;
+}
+@keyframes marquee {
+	0%{opacity: 1; transform:translate(-100%, 0);}
+    100%{opacity: 1; transform:translate(100%, 0);}
+}
+#stopMarqueebtn {
+	position: fixed;
+    right: 0;
+    bottom: 0;
+}
+</style>
+<body>
+<iframe width="0" height="0" src="https://www.youtube.com/embed/wuJIqmha2Hk?autoplay=1&loop=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+<button onclick='showEmbed()'>no sound? click here</button><br>
+<h1>Birth</h1>
+<h2 class='marquee'>happy birthday friend        happy birthday friend        happy birthday friend        happy birthday friend        happy birthday friend        happy birthday friend        </h2>
+<h3 class='marquee'>it's your womb eviction day</h3>
+<h3 class='marquee'>You've Aged</h3>
+<h3 class='marquee'>wow     wow     wow     wow     wow     wow     wow     wow     wow     wow     wow     wow     wow     wow     wow     </h3>
+
+<h3>you are: <span id='years'>0</span> years old</h3>
+<button id = 'yearsbtn' onclick='stopYears()'>click to stop</button>
+<button id='stopMarqueebtn' onclick='stopMarquee()'>pls stop with the animations i have a crippling headache</button>
+<script>
+let marqueetext = document.getElementsByClassName('marquee');
+for (let i = 0; i < marqueetext.length; i++) {
+	marqueetext[i].style.animationDelay = `${i * 1.5}s`;
+}
+let yourAge = setInterval(addYear, 1000);
+function addYear() {
+	+document.getElementById('years').innerHTML++;
+}
+function stopYears() {
+	clearInterval(yourAge);
+    document.getElementById('years').innerHTML = 1000000000000000000;
+    document.getElementById('yearsbtn').innerHTML = 'nice';
+}
+function stopMarquee() {
+	let marqueetext = document.getElementsByClassName('marquee');
+    for(text of marqueetext) {
+    	text.style.animationPlayState = 'paused';
+    }
+    document.getElementById('stopMarqueebtn').innerHTML = 'look at that, no more scrolling. sucks';
+}
+function showEmbed() {
+	let embed = document.getElementsByTagName('iframe')[0];
+    embed.width = '250';
+    embed.height = '175';
+}
+</script>
+</body>
+</html>
