@@ -5,10 +5,9 @@
 <style>
 body{
 	font-family: 'Comic Sans MS', 'Comic Sans', Chalkboard, 'Times New Roman', 'Times';
-    font-style: normal;
-    font-weight: 400;
+    font-size: 3.5vh;
     overflow-x: hidden;
-    text-align: center;
+    text-align: left;
 }
 h1{
 	color: cornflowerblue;
@@ -17,14 +16,16 @@ h1{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size:4.25rem;
-    animation: spin 3s linear infinite;
-}
-h2 {
-	font-size: 2.3rem;
+    animation: spin 4s linear infinite;
 }
 @keyframes spin {
 	from{ transform: rotate(0deg);}
 	to{ transform: rotate(360deg);}
+}
+button {
+	font-family: inherit;
+	font-size: inherit;
+	height: 4em;
 }
 .marquee {
 	white-space: pre;
@@ -37,24 +38,25 @@ h2 {
 	0%{opacity: 1; transform:translate(-100%, 0);}
     100%{opacity: 1; transform:translate(100%, 0);}
 }
-#stopMarqueebtn {
+#stopAnimationbtn {
 	position: fixed;
     right: 0;
     bottom: 0;
 }
 </style>
 <body>
-<iframe width="0" height="0" src="https://www.youtube.com/embed/wuJIqmha2Hk?autoplay=1&loop=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-<button onclick='showEmbed()'>no sound? click here</button><br>
+<iframe width="0" height="0" src="https://www.youtube.com/embed/wuJIqmha2Hk?autoplay=1&loop=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"></iframe>
+<button id='showEmbedbtn' onclick='showEmbed()'>no sound? click here</button>
+<button id='hideEmbedbtn' style = 'display: none;' onclick='hideEmbed()'>hide video</button>
+<br>
 <h1>Birth</h1>
 <h2 class='marquee'>happy birthday friend        happy birthday friend        happy birthday friend        happy birthday friend        happy birthday friend        happy birthday friend        </h2>
 <h3 class='marquee'>it's your womb eviction day</h3>
-<h2 class='marquee'>You've Aged</h2>
+<h3 class='marquee'>You've Aged</h3>
 <h3 class='marquee'>wow     wow     wow     wow     wow     wow     wow     wow     wow     wow     wow     wow     wow     wow     wow     </h3>
-
-<h3>you are: <span id='years'>0</span> years old</h3>
-<button id = 'yearsbtn' onclick='stopYears()'>click to stop</button>
-<button id='stopMarqueebtn' onclick='stopMarquee()'>pls stop with the animations i have a crippling headache</button>
+<h3 style='text-align: left;'>you are: <span id='years'>0</span> years old</h3>
+<button id = 'yearsbtn'onclick='stopYears()'>click to stop</button>
+<button id='stopAnimationbtn' onclick='stopAnimation()'>pls stop with the animations i have a crippling headache</button>
 <script>
 let marqueetext = document.getElementsByClassName('marquee');
 for (let i = 0; i < marqueetext.length; i++) {
@@ -69,17 +71,25 @@ function stopYears() {
     document.getElementById('years').innerHTML = 1000000000000000000;
     document.getElementById('yearsbtn').innerHTML = 'nice';
 }
-function stopMarquee() {
+function stopAnimation() {
 	let marqueetext = document.getElementsByClassName('marquee');
     for(text of marqueetext) {
     	text.style.animationPlayState = 'paused';
     }
-    document.getElementById('stopMarqueebtn').innerHTML = 'look at that, no more scrolling. sucks';
+    document.getElementsByTagName('h1')[0].style.animationPlayState = 'paused';
+    document.getElementById('stopAnimationbtn').innerHTML = 'none of those animations now';
 }
 function showEmbed() {
-	let embed = document.getElementsByTagName('iframe')[0];
-    embed.width = '250';
-    embed.height = '175';
+	document.getElementsByTagName('iframe')[0].width = '250';
+    document.getElementsByTagName('iframe')[0].height = '175';
+    document.getElementById('showEmbedbtn').style.display = 'none';
+    document.getElementById('hideEmbedbtn').style.display = 'inline-block';
+}
+function hideEmbed() {
+	document.getElementsByTagName('iframe')[0].width = '0';
+    document.getElementsByTagName('iframe')[0].height = '0';
+    document.getElementById('hideEmbedbtn').style.display = 'none';
+    document.getElementById('showEmbedbtn').style.display = 'inline-block';
 }
 </script>
 </body>
