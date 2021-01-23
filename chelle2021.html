@@ -8,14 +8,16 @@
 </style>
 <style>
 body{
-	font: 5vw 'Lato', 'Comic Sans MS', 'Chalkboard', 'ChalkboardSE-Regular', sans-serif;
+	font: 4vw 'Lato', 'Comic Sans MS', 'Chalkboard', 'ChalkboardSE-Regular', sans-serif;
     color: #571032;
     overflow-X: hidden;
     text-align:left;
+    white-space: pre;
+    margin: 0;
     background-color: #d1f3de;
 }
 h1 {
-	font-size: 12vw;
+	font-size: 10vw;
     color: purple;
     display: inline-block;
     background: -webkit-linear-gradient(left, red, orange, gold, green, blue, purple);
@@ -26,7 +28,6 @@ h1 {
 }
 p {
 	display: inline-block;
-    white-space: pre;
 }
 @keyframes rotatE {
 	100% {transform: rotate(360deg);}
@@ -36,44 +37,39 @@ p {
 <body>
 <div style='background-color:#b07289; height: 100vh;'>
 <h1>BIRTH</h1>
-<br>
 <div class='pcontainer'>
 <p>happy birthday</p>
 </div>
-<br>
 <div class='pcontainer'>
 <p>welcome to the 15 year old club</p>
 </div>
-<br>
 <div class='pcontainer'>
 <p>get your certificate <a href=#>here</a></p>
 </div>
-<br>
 <div class='pcontainer'>
 <p>please hang it somewhere nice</p>
 </div>
-<br>
 <div class='pcontainer'>
 <p>:O</p>
 </div>
 </div>
 </body>
 <script>
-let style = document.getElementsByTagName('style')[0], 
+let style = document.getElementsByTagName('style')[1], 
 ps = document.getElementsByTagName('p'), 
 containers = document.getElementsByClassName('pcontainer');
 
 for(let i = 0; i < ps.length; i++) {
 	style.innerHTML += `
     	@keyframes bounceX${i} {
-        	100% {transform: translateX(calc(100vw - ${ps[i].getBoundingClientRect().width}px))};
+        	100% {transform: translateX( calc(100vw - ${ps[i].getBoundingClientRect().width}px) )};
             }
         @keyframes bounceY${i} {
-        	100% {transform: translateY(calc(100vh - ${containers[i].getBoundingClientRect().height}px))}
+        	100% {transform: translateY( calc(100vh - 4vw) )};
         	}
     `
-    ps[i].style.animation = `bounceX${i} ${i + 1.5}s linear infinite alternate`;
-    containers[i].style.animation = `bounceY${i} ${i + 2}s linear infinite alternate`;
+    ps[i].style.animation = `bounceY${i} 2s linear infinite alternate`;
+    containers[i].style.animation = `bounceX${i} ${i+2}s linear infinite alternate`;
 }
 </script>
 </html>
