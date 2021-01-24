@@ -66,8 +66,8 @@ for(let i = 0; i < ps.length; i++) {
         	100% {transform: translateY( calc(100vh - ${ps[i].getBoundingClientRect().height}px) )};
         	}
     `
-    ps[i].style.animation = `bounceY${i} ${i + 5}s -${i + 3}s linear infinite alternate`;
-    containers[i].style.animation = `bounceX${i} ${i + 7}s -${i + 5}s linear infinite alternate`;
+    ps[i].style.animation = `bounceY${i} ${i + 3}s -${i + 3}s linear infinite alternate`;
+    containers[i].style.animation = `bounceX${i} ${i + 5}s -${i + 5}s linear infinite alternate`;
 }
 </script>
 </html>
