@@ -30,7 +30,7 @@ h1 {
 .pcontainer, p {
     position: absolute;
     top: 0;
-    left: 2vw;
+    left: 0;
 }
 @keyframes rotatE {
 	100% {transform: rotate(360deg);}
@@ -60,7 +60,7 @@ containers = document.getElementsByClassName('pcontainer');
 for(let i = 0; i < ps.length; i++) {
 	style.innerHTML += `
     	@keyframes bounceX${i} {
-        	100% {transform: translateX( calc(98vw - ${ps[i].getBoundingClientRect().width}px) )};
+        	100% {transform: translateX( calc(96vw - ${ps[i].getBoundingClientRect().width}px) )};
             }
         @keyframes bounceY${i} {
         	100% {transform: translateY( calc(100vh - ${ps[i].getBoundingClientRect().height}px) )};
