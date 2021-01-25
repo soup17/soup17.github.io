@@ -13,6 +13,7 @@ body{
     overflow-X: hidden;
     text-align:left;
     margin: 0;
+    white-space: nowrap;
     background-color: #7c5295;
     border: 2vw double #d1f3de;
     height: 100vh;
@@ -27,10 +28,10 @@ h1 {
     animation: rotatE 10s linear infinite;
 }
 .pcontainer, p {
+	display: inline-block;
     position: absolute;
     top: 0;
     left: 2vw;
-    width: 80vw;
 }
 @keyframes rotatE {
 	100% {transform: rotate(360deg);}
@@ -43,10 +44,10 @@ h1 {
 <p>happy birthday !!</p>
 </div>
 <div class='pcontainer'>
-<p>welcome to the 15 year old club! get your certificate <a href='/15_cringcert.pdf' target='_blank'>here</a></p>
+<p>welcome to the 15 year old club! <br>get your certificate <a href='/15_cringcert.pdf' target='_blank'>here</a></p>
 </div>
 <div class='pcontainer'>
-<p>please print your certificate and hang it somewhere nice</p>
+<p>please print your certificate <br>and hang it somewhere nice</p>
 </div>
 <div class='pcontainer'>
 <p>:O</p>
@@ -57,7 +58,7 @@ let style = document.getElementsByTagName('style')[1],
 ps = document.getElementsByTagName('p'), 
 containers = document.getElementsByClassName('pcontainer');
 
-for(let i = 0; i < ps.length; i++) {
+for(let i = 0; i < ps.length; i++) {  
 	style.innerHTML += `
     	@keyframes bounceX${i} {
         	100% {transform: translateX( calc(93vw - ${ps[i].getBoundingClientRect().width}px) )};
@@ -65,9 +66,9 @@ for(let i = 0; i < ps.length; i++) {
         @keyframes bounceY${i} {
         	100% {transform: translateY( calc(100vh - ${ps[i].getBoundingClientRect().height}px) )};
         	}
-    `
-    ps[i].style.animation = `bounceY${i} ${i + 3}s -${i + 3}s linear infinite alternate`;
-    containers[i].style.animation = `bounceX${i} ${i + 5}s -${i + 5}s linear infinite alternate`;
+    `;
+    ps[i].style.animation = `bounceY${i} ${i + 5}s -${i + 3}s linear infinite alternate`;
+    containers[i].style.animation = `bounceX${i} ${i + 3}s -${i + 5}s linear infinite alternate`;
 }
 </script>
 </html>
