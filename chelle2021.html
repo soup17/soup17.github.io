@@ -10,13 +10,13 @@
 body{
 	font: 5vmin 'Lato', 'Comic Sans MS', 'Chalkboard', 'ChalkboardSE-Regular', sans-serif;
     color: #571032;
-    overflow-X: hidden;
     text-align:left;
+    overflow-X: hidden;
     margin: 0;
+    height: 100vh;
     white-space: nowrap;
     background-color: #7c5295;
     border: 2vw double #d1f3de;
-    height: 100vh;
 }
 h1 {
 	font-size: 12vmin;
@@ -25,6 +25,10 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     animation: rotatE 10s linear infinite;
 }
 .pcontainer, p {
