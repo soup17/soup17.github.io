@@ -40,6 +40,16 @@ h1 {
 	0% {transform: translate(-50%, -50%) rotate(0deg); }
 	100% {transform: translate(-50%, -50%) rotate(360deg);}
 }
+#vid1 {
+	position: absolute;
+    right: 2vw;
+    top: 2vw;
+}
+#vid2 {
+	position: absolute;
+    right: 2vw;
+    bottom: -2vw;
+}
 </style>
 </head>
 <body>
@@ -56,7 +66,8 @@ h1 {
 <div class='pcontainer'>
 <p>:O</p>
 </div>
-</body>
+<iframe id='vid1' width="100" height="100" src="https://www.youtube.com/embed/J_XQsxy7KWM?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe id='vid2' width="100" height="100" src="https://www.youtube.com/embed/YF69zgW3ST4?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <script>
 let style = document.getElementsByTagName('style')[1], 
 ps = document.getElementsByTagName('p'), 
@@ -75,4 +86,5 @@ for(let i = 0; i < ps.length; i++) {
     containers[i].style.animation = `bounceX${i} ${i + 3}s -${i + 5}s linear infinite alternate`;
 }
 </script>
+</body>
 </html>
