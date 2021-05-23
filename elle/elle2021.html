@@ -48,7 +48,7 @@ h3 {
   -webkit-background-clip: content-box;
   background-clip: content-box;
   position: absolute;
-  top: 3vh;
+  top: 4vh;
   background-size: 100%;
   display: inline-block;
   animation: glow 2s infinite alternate;
@@ -121,7 +121,7 @@ let letters = document.getElementsByClassName("letter-glow");
 let glows = document.getElementsByClassName("glow");
 for (let i = 0; i < letters.length; i++) {
 	let glowWidth = letters[i].getBoundingClientRect().width;
-    let glowHeight = letters[i].getBoundingClientRect().height + 5;
+    let glowHeight = letters[i].getBoundingClientRect().height + 8;
     glows[i].style.width = `${glowWidth}px`;
     glows[i].style.height = `${glowHeight}px`;
 }
