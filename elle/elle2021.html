@@ -41,20 +41,21 @@ h3 {
   padding: 0 8rem 0 0;
   margin: inherit;
 }
-.glow h1 {
-  animation: letter-glow 2s infinite alternate;
-}
-.glow::after {
-  content: "";
-  background: linear-gradient(90deg, rgba(225,30,30,0.8), rgba(255, 165, 30, 0.8), rgba(210, 170, 30, 0.8), rgba(40, 148, 40, 0.7), rgba(80, 80, 208, 0.7), rgba(168, 101, 110, 0.7));  
-  width: 9em;
-  height: 5em;  
+.glow {
+  background: linear-gradient(90deg, rgba(225,30,30,0.8), rgba(255, 165, 30, 0.8), rgba(210, 170, 30, 0.8), rgba(40, 148, 40, 0.7), rgba(80, 80, 208, 0.7), rgba(168, 101, 110, 0.7)); 
+  -webkit-background-clip: content-box;
+  background-clip: content-box;
   position: absolute;
-  top: 0;
-  left: -1vw;
-  filter: blur(8em);
+  top: 3vh;
+  background-size: 100%;
+  display: inline-block;
   animation: glow 2s infinite alternate;
 }
+.letter-glow {
+    animation: letter-glow 2s infinite alternate;
+    filter: none;
+}
+
 .head {
   background-color: #0c1c1c;
   border-bottom: 1px solid #555;
@@ -70,7 +71,7 @@ h3 {
   }
 @keyframes glow {
   0% {filter: blur(8em); }
-  100% {filter: blur(1.1em); }
+  100% {filter: blur(1.2em); }
 }
 @keyframes letter-glow {
   0% { color: transparent; }
@@ -83,7 +84,7 @@ h3 {
 <span class="shimmer"><h1>happy birthday!</h1></span>
 </div>
 <div class="head">
-<span class="glow"><h1>how old?</h1></span>
+<span class="glow"></span><h1 class="letter-glow">how old?</h1>
 </div>
 
 <div class="content">
@@ -102,11 +103,22 @@ a
 </p>
 </body>
 <script>
+//for clean header stacking
 let headers = document.getElementsByClassName("head");
 let prevHeights = 0; 
 for (let i = headers.length - 1; i >= 0; i--) {
 	headers[i].style.bottom = `${prevHeights}px`;
   prevHeights += headers[i].getBoundingClientRect().height;
+}
+
+//calculate glow size
+let letters = document.getElementsByClassName("letter-glow");
+let glows = document.getElementsByClassName("glow");
+for (let i = 0; i < letters.length; i++) {
+	let glowWidth = letters[i].getBoundingClientRect().width;
+    let glowHeight = letters[i].getBoundingClientRect().height + 5;
+    glows[i].style.width = `${glowWidth}px`;
+    glows[i].style.height = `${glowHeight}px`;
 }
 
 let yourAge = setInterval(addYear, 1000);
