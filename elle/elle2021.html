@@ -24,7 +24,7 @@ h1, h2, h3 {
     display: inline-block;
     text-align: center;
 }
-h1, h2 {
+h1 {
       font-size: 8vh;
 }
 h3 {
@@ -86,14 +86,13 @@ h3 {
 <span class="shimmer"><h1>happy birthday!</h1></span>
 </div>
 <div class="content">
-<iframe width="0" height="0" src="https://www.youtube.com/embed/bP4ggdfBtDg?autoplay=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<button id="showEmbedbtn">no music? click here</button>
-<button id="hideEmbedbtn">hide embed</button>
+<iframe width="0" height="0" id="video" src="https://www.youtube.com/embed/_qEte63o8C0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+<button id="showEmbedbtn" onclick="showEmbed()">no music? click here</button>
+<button id="hideEmbedbtn" onclick="hideEmbed()">hide embed</button>
 </div>
 <div class="head">
 <span class="glow"></span><h1 class="letter-glow">how old?</h1>
 </div>
-
 <div class="content">
 <h3 style="text-align: left;">you are: <span id='years'>0</span> years old</h3>
 <br>
@@ -117,7 +116,21 @@ for (let i = headers.length - 1; i >= 0; i--) {
 	headers[i].style.bottom = `${prevHeights}px`;
   prevHeights += headers[i].getBoundingClientRect().height;
 }
-
+function showEmbed() {
+	let video = document.getElementById("video");
+	video.width = "647";
+	video.height = "364";
+    document.getElementById("showEmbedbtn").style.display = "none";
+    document.getElementById("showEmbedbtn").innerHTML = "show embed";
+    document.getElementById("hideEmbedbtn").style.display = "inline-block";
+}
+function hideEmbed() {
+	let video = document.getElementById("video");
+    video.width = "0";
+    video.height = "0";
+    document.getElementById("hideEmbedbtn").style.display = "none";
+    document.getElementById("showEmbedbtn").style.display = "inline-block";
+}
 //calculate glow size
 let letters = document.getElementsByClassName("letter-glow");
 let glows = document.getElementsByClassName("glow");
