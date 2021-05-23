@@ -7,6 +7,7 @@
 body {
 	background-color: #222;
   font-family: "Comic Sans MS", "Trebuchet MS";
+  border-top: 4vh dashed green;
 }
 div, img {
   width: 100vw;
@@ -65,7 +66,14 @@ h3 {
   bottom: 0;
 }
 .content {
-  background-color: #1f3f3f;
+  background-color: #2c8955;
+}
+button {
+	width: 20vw;
+	height: 10vh;
+    border: 0.4vh solid DarkSeaGreen;
+    border-radius: 10px;
+    background-color: #90f392;
 }
 @keyframes shimmer {
   0% {background-position: top left;}
@@ -87,8 +95,8 @@ h3 {
 </div>
 <div class="content">
 <iframe width="0" height="0" id="video" src="https://www.youtube.com/embed/_qEte63o8C0?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-<button id="showEmbedbtn" onclick="showEmbed()">no music? click here</button>
-<button id="hideEmbedbtn" onclick="hideEmbed()">hide embed</button>
+<button id="showEmbedbtn" onclick="showEmbed()">no music? reload or click here</button>
+<button id="hideEmbedbtn" onclick="hideEmbed()" style="display: none">hide embed</button>
 </div>
 <div class="head">
 <span class="glow"></span><h1 class="letter-glow">how old?</h1>
