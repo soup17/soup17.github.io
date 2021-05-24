@@ -33,7 +33,7 @@ h3 {
 	font-size: 6vh;
 }
 p {
-	font-size: 3vh;
+	font-size: 5vh;
 }
 .shimmer {
   background: linear-gradient(90deg, rgba(255,255,255,0), white, rgba(255,255,255,0));
@@ -79,7 +79,7 @@ button {
 	border-radius: 10px;
 	background-color: #90f392;
 	font-family: "Comic Sans MS", "Trebuchet MS";
-	font-size: 2vh;
+	font-size: 4vh;
 }
 @keyframes shimmer {
   0% {background-position: top left;}
@@ -131,6 +131,7 @@ for (let i = headers.length - 1; i >= 0; i--) {
 	headers[i].style.bottom = `${prevHeights}px`;
   prevHeights += headers[i].getBoundingClientRect().height;
 }
+//show and hide music
 function showEmbed() {
 	let video = document.getElementById("video");
 	video.width = "647";
